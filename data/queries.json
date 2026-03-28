@@ -1,0 +1,29 @@
+[
+  {
+    "task_id": "task_1",
+    "difficulty": "easy",
+    "schema_name": "ecommerce",
+    "broken_query": "SELECT id name, email, created_at FROM users;",
+    "correct_query": "SELECT id, name, email, created_at FROM users;",
+    "description": "Missing comma between 'id' and 'name' in the SELECT clause causes a syntax error.",
+    "expected_improvement": "Query parses and executes successfully, returning all four columns from the users table."
+  },
+  {
+    "task_id": "task_2",
+    "difficulty": "medium",
+    "schema_name": "hr",
+    "broken_query": "SELECT e.name, e.salary, d.name AS department FROM employees e, departments d;",
+    "correct_query": "SELECT e.name, e.salary, d.name AS department FROM employees e JOIN departments d ON e.department_id = d.id;",
+    "description": "No JOIN condition between employees and departments produces a cartesian product, multiplying every employee row by every department row.",
+    "expected_improvement": "Adding the ON clause restricts results to correct employee–department pairs, eliminating the cartesian product and returning accurate data."
+  },
+  {
+    "task_id": "task_3",
+    "difficulty": "hard",
+    "schema_name": "blog",
+    "broken_query": "SELECT a.id, a.name, (SELECT SUM(p.view_count) FROM posts p WHERE p.author_id = a.id) AS total_views FROM authors a ORDER BY total_views DESC LIMIT 10;",
+    "correct_query": "SELECT a.id, a.name, SUM(p.view_count) AS total_views FROM authors a JOIN posts p ON a.id = p.author_id GROUP BY a.id, a.name ORDER BY total_views DESC LIMIT 10;",
+    "description": "A correlated subquery in the SELECT clause re-executes a full scan of the posts table once per author row, making the query O(n²) and extremely slow on large datasets.",
+    "expected_improvement": "Rewriting with a JOIN and GROUP BY computes the aggregate in a single pass over the posts table, dramatically reducing execution time and resource usage."
+  }
+]

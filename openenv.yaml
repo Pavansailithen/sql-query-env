@@ -1,0 +1,21 @@
+name: sql-query-env
+version: "1.0.0"
+description: "A real-world SQL query debugging and optimization environment for RL agent training"
+
+tags:
+  - openenv
+  - sql
+  - debugging
+  - optimization
+
+hardware: cpu-basic
+workers: 2
+port: 8000
+
+env:
+  API_BASE_URL:
+    required: true
+  MODEL_NAME:
+    required: true
+  HF_TOKEN:
+    required: true

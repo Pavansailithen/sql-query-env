@@ -1,0 +1,44 @@
+{
+  "ecommerce": {
+    "description": "E-commerce database",
+    "tables": {
+      "users": {
+        "columns": ["id", "name", "email", "created_at"]
+      },
+      "orders": {
+        "columns": ["id", "user_id", "total", "status", "created_at"]
+      },
+      "order_items": {
+        "columns": ["id", "order_id", "product_id", "quantity", "price"]
+      }
+    }
+  },
+  "hr": {
+    "description": "HR database",
+    "tables": {
+      "employees": {
+        "columns": ["id", "name", "department_id", "salary", "hire_date"]
+      },
+      "departments": {
+        "columns": ["id", "name", "budget"]
+      },
+      "attendance": {
+        "columns": ["id", "employee_id", "date", "hours_worked"]
+      }
+    }
+  },
+  "blog": {
+    "description": "Blog database",
+    "tables": {
+      "posts": {
+        "columns": ["id", "title", "content", "author_id", "published_at", "view_count"]
+      },
+      "authors": {
+        "columns": ["id", "name", "email"]
+      },
+      "comments": {
+        "columns": ["id", "post_id", "author_id", "body", "created_at"]
+      }
+    }
+  }
+}

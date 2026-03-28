@@ -1,0 +1,6 @@
+"venv/
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+.git/" | Out-File -FilePath .gitignore -Encoding utf8
