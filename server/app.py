@@ -53,11 +53,12 @@ except Exception:
 # ---------------------------------------------------------------------------
 
 @app.post("/reset")
-async def reset(task_name: str = "task_001") -> JSONResponse:
+async def reset(task_name: str = "task_1") -> JSONResponse:
     """Start a new episode for the given task."""
     _env.load_task(task_name)
     observation = _env.reset()
     return JSONResponse(content=observation.model_dump())
+
 
 
 @app.post("/step")
