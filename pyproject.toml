@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "sql-query-env"
+version = "1.0.0"
+description = "OpenEnv-compatible SQL Query RL Environment"
+requires-python = ">=3.11"
