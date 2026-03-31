@@ -7,3 +7,14 @@ name = "sql-query-env"
 version = "1.0.0"
 description = "OpenEnv-compatible SQL Query RL Environment"
 requires-python = ">=3.11"
+dependencies = [
+    "openenv-core>=0.2.0",
+    "fastapi",
+    "uvicorn",
+    "pydantic",
+    "requests",
+    "openai",
+]
+
+[project.scripts]
+server = "server.app:app"
